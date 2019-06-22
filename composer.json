@@ -1,0 +1,36 @@
+{
+    "name": "marshmallow/helper-functions",
+    "description": "This is a package that contains helpers we can use throughout the software.",
+    "keywords": ["marshmallow"],
+    "homepage": "https://github.com/Marshmallow-Development/",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stef",
+            "email": "stef@marshmallow.dev",
+            "homepage": "https://marshmallow.dev",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "stef@marshmallow.dev"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {"Marshmallow\\HelperFunctions\\": "src"}
+    },
+    "autoload-dev": {
+        "psr-4": {"Marshmallow\\HelperFunctions\\": "src"}
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Marshmallow\\HelperFunctions\\HelperFunctionsServiceProvider"
+            ]
+        }
+    }
+}
