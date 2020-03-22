@@ -28,6 +28,4 @@ Next, you will have access to al the marshmallow helper functions. You can overr
 
 ### Available functions
 Below you will find a list of function in the helper package
-- Ping
-- admin() // returns the user instance of the logged in admin
-- adminLoggedin() // returns boolean
+- Str::cleanPhoneNumber

@@ -1,6 +1,6 @@
 {
-    "name": "marshmallow/helper-functions",
-    "description": "This is a package that contains helpers we can use throughout the software.",
+    "name": "marshmallow/breadcrumb",
+    "description": "A package for Laravel Breadcrum usage with the ability to add some default and use your custom templating",
     "keywords": ["marshmallow"],
     "homepage": "https://github.com/Marshmallow-Development/",
     "type": "library",
@@ -18,7 +18,8 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.0.0"
+        "php": ">=7.0.0",
+        "marshmallow/commands": "^1.0"
     },
     "autoload": {
         "psr-4": {"Marshmallow\\HelperFunctions\\": "src"}
@@ -30,7 +31,10 @@
         "laravel": {
             "providers": [
                 "Marshmallow\\HelperFunctions\\HelperFunctionsServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Str": "Marshmallow\\HelperFunctions\\Facades\\Str"
+            }
         }
     }
 }

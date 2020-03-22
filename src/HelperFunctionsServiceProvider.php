@@ -2,8 +2,8 @@
 
 namespace Marshmallow\HelperFunctions;
 
-use Illuminate\Support\ServiceProvider;
 use Symfony\Component\Finder\Finder;
+use Illuminate\Support\ServiceProvider;
 
 class HelperFunctionsServiceProvider extends ServiceProvider
 {
@@ -14,7 +14,9 @@ class HelperFunctionsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(Str::class, function ($app) {
+            return new Str();
+        });
     }
 
     /**
