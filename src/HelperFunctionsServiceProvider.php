@@ -17,6 +17,10 @@ class HelperFunctionsServiceProvider extends ServiceProvider
         $this->app->singleton(Str::class, function ($app) {
             return new Str();
         });
+
+        $this->app->singleton(URL::class, function ($app) {
+            return new URL();
+        });
     }
 
     /**

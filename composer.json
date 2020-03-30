@@ -32,7 +32,8 @@
                 "Marshmallow\\HelperFunctions\\HelperFunctionsServiceProvider"
             ],
             "aliases": {
-                "Str": "Marshmallow\\HelperFunctions\\Facades\\Str"
+                "Str": "Marshmallow\\HelperFunctions\\Facades\\Str",
+                "URL": "Marshmallow\\HelperFunctions\\Facades\\URL"
             }
         }
     }
