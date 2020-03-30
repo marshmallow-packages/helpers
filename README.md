@@ -3,16 +3,16 @@
 </p>
 <p align="center">
     <a href="https://github.com/Marshmallow-Development">
-        <img src="https://img.shields.io/github/issues/Marshmallow-Development/package-helpers.svg" alt="Issues">
+        <img src="https://img.shields.io/github/issues/Marshmallow-Development/package-helper-functions.svg" alt="Issues">
     </a>
     <a href="https://github.com/Marshmallow-Development">
-        <img src="https://img.shields.io/github/forks/Marshmallow-Development/package-helpers.svg" alt="Forks">
+        <img src="https://img.shields.io/github/forks/Marshmallow-Development/package-helpers-functions.svg" alt="Forks">
     </a>
     <a href="https://github.com/Marshmallow-Development">
-        <img src="https://img.shields.io/github/stars/Marshmallow-Development/package-helpers.svg" alt="Stars">
+        <img src="https://img.shields.io/github/stars/Marshmallow-Development/package-helpers-functions.svg" alt="Stars">
     </a>
     <a href="https://github.com/Marshmallow-Development">
-        <img src="https://img.shields.io/github/license/Marshmallow-Development/package-helpers.svg" alt="License">
+        <img src="https://img.shields.io/github/license/Marshmallow-Development/package-helpers-functions.svg" alt="License">
     </a>
 </p>
 
@@ -21,7 +21,7 @@ With the marshmallow helper package, you will get a lot of helper functions to u
 
 ### Installing
 ```
-composer require marshmallow/laravel-helper-functions
+composer require marshmallow/laravel-helpers
 ```
 
 Next, you will have access to al the marshmallow helper functions. You can override these functions in your own project if you're not happy with what the function is doing. Please remember, update the function in de package is best practice.
