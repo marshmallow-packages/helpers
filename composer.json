@@ -1,5 +1,5 @@
 {
-    "name": "marshmallow/helpers",
+    "name": "marshmallow/laravel-helpers",
     "description": "A package containing all the helper function we can use throughout all our projects",
     "keywords": ["marshmallow"],
     "homepage": "https://github.com/Marshmallow-Development/",
