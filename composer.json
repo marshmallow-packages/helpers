@@ -34,7 +34,7 @@
             "aliases": {
                 "Str": "Marshmallow\\HelperFunctions\\Facades\\Str",
                 "URL": "Marshmallow\\HelperFunctions\\Facades\\URL",
-                "BuilderHelper": "Marshmallow\\HelperFunctions\\Facades\\BuilderHelper",
+                "BuilderHelper": "Marshmallow\\HelperFunctions\\Facades\\BuilderHelper"
             }
         }
     }
