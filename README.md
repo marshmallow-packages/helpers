@@ -28,5 +28,8 @@ Next, you will have access to al the marshmallow helper functions. You can overr
 
 ### Available functions
 Below you will find a list of function in the helper package
-- Str::cleanPhoneNumber
+- Str::cleanPhoneNumber()
 - URL::isInternal('url')
+
+## Tests during development
+`php artisan test packages/marshmallow/helpers`

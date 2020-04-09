@@ -9,8 +9,9 @@ class ModelObserver
     	if (method_exists($model, 'applyDefaultAttributes')) {
     		$model->applyDefaultAttributes();
     	}
-    	
-        $model->__saving();
+    	if (method_exists($model, '__saving')) {
+    		$model->__saving();
+    	}
     }
 
 	public static function observe ($class_name)
