@@ -8,8 +8,8 @@ class ReviewHelper
 	{
 		$max_rating = config('review.max_rating', 5);
 		$full_star = config('review.full_star', '<i class="fas fa-star"></i>');
-		$half_star = config('review.half_star', '<i class="fas fa-star"></i>');
-		$empty_star = config('review.empty_star', '<i class="fas fa-star"></i>');
+		$half_star = config('review.half_star', '<i class="fas fa-star-half-alt"></i>');
+		$empty_star = config('review.empty_star', '<i class="far fa-star"></i>');
 
 		if (isset($config_overrule['max_rating'])) {
 			$max_rating = $config_overrule['max_rating'];
