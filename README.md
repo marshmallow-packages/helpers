@@ -31,5 +31,31 @@ Below you will find a list of function in the helper package
 - Str::cleanPhoneNumber()
 - URL::isInternal('url')
 
+## ReviewStars
+For the review stars you can call `ReviewHelper::ratingToStars(4.5)`. By default the ReviewHelper will think you are using a max rating of 5, support half star rating and return a string of FontAwesome icons. You can overule this behaviour by;
+
+### Customise
+Create the config file `config/review.php` and specify your needs:
+```
+<?php
+
+return [
+    'max_rating' => 10,
+    'full_star' => '+ ',
+    'half_star' => '* ',
+    'empty_star' => '- ',
+];
+```
+
+Or you can provide the same config array as a second parameter to the `ratingToStars` method like so;
+```
+ReviewHelper::ratingToStars(4.5, [
+    'max_rating' => 10,
+    'full_star' => '+ ',
+    'half_star' => '* ',
+    'empty_star' => '- ',
+])
+```
+
 ## Tests during development
 `php artisan test packages/marshmallow/helpers`
