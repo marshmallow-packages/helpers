@@ -2,7 +2,7 @@
 
 if (!function_exists('percentage')) {
 
-	function percentage ($mark, $total)
+	function percentage ($mark, $total): float
 	{
 		if (is_array($mark) || $mark instanceof Countable) {
 		    $mark = count($mark);

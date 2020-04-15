@@ -26,10 +26,13 @@ composer require marshmallow/laravel-helpers
 
 Next, you will have access to al the marshmallow helper functions. You can override these functions in your own project if you're not happy with what the function is doing. Please remember, update the function in de package is best practice.
 
-### Available functions
+### Available facades
 Below you will find a list of function in the helper package
 - Str::cleanPhoneNumber()
 - URL::isInternal('url')
+
+### Available helper functions
+- percentage(47, App\Post::get()); // 63.829787234043
 
 ## ReviewStars
 For the review stars you can call `ReviewHelper::ratingToStars(4.5)`. By default the ReviewHelper will think you are using a max rating of 5, support half star rating and return a string of FontAwesome icons. You can overule this behaviour by;
