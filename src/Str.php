@@ -28,32 +28,37 @@ class Str extends \Illuminate\Support\Str
 		return $string;
 	}
 
-	public function getFirstParagraph ($string)
+	public function getFirstParagraph ($string, $number_of_paragraphs = 1, $return_array = false)
 	{
 		$paragraphs = $this->paragraphsAsArray($string);
 		if (is_array($paragraphs)) {
-			return $paragraphs[0];
+			$return_paragraphs = [];
+			for ($i=0; $i < $number_of_paragraphs; $i++) { 
+				$return_paragraphs[] = $paragraphs[$i];
+			}
+
+			if ($return_array) {
+				return $return_paragraphs;
+			}
+
+			return join('', $return_paragraphs);
 		}
 		return $string;
 	}
 
-	public function getAllButFirstParagraph ($string)
+	public function getAllButFirstParagraph ($string, $number_of_paragraphs_to_skip = 1, $return_array = false)
 	{
 		$paragraphs = $this->paragraphsAsArray($string);
 		if (is_array($paragraphs)) {
-			unset($paragraphs[0]);
-			return $paragraphs;
-		}
-		return $string;
-	}
+			for ($i=0; $i < $number_of_paragraphs_to_skip; $i++) { 
+				unset($paragraphs[$i]);
+			}
 
-	public function getAllButFirstParagraphAsString ($string)
-	{
-		$paragraphs = $this->getAllButFirstParagraph($string);
-		if (is_array($paragraphs)) {
+			if ($return_array) {
+				return $paragraphs;
+			}
 			return join('', $paragraphs);
 		}
-
 		return $string;
 	}
 }

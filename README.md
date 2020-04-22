@@ -36,10 +36,9 @@ Below you will find a list of function in the helper package
 - Str::cleanPhoneNumber()
 - Str::numbersOnly()
 - Str::numbersAndLettersOnly()
-- Str::paragraphsAsArray()
-- Str::getFirstParagraph()
-- Str::getAllButFirstParagraph()
-- Str::getAllButFirstParagraphAsString()
+- Str::paragraphsAsArray($string)
+- Str::getFirstParagraph($string, $number_of_paragraphs = 1, $return_array = false)
+- Str::getAllButFirstParagraph($string, $number_of_paragraphs_to_skip = 1, $return_array = false)
 
 ### Available helper functions
 - percentage(47, App\Post::get()); // 63.829787234043
