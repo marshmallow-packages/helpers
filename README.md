@@ -28,8 +28,18 @@ Next, you will have access to al the marshmallow helper functions. You can overr
 
 ### Available facades
 Below you will find a list of function in the helper package
-- Str::cleanPhoneNumber()
+
+## URL
 - URL::isInternal('url')
+
+## Str
+- Str::cleanPhoneNumber()
+- Str::numbersOnly()
+- Str::numbersAndLettersOnly()
+- Str::paragraphsAsArray()
+- Str::getFirstParagraph()
+- Str::getAllButFirstParagraph()
+- Str::getAllButFirstParagraphAsString()
 
 ### Available helper functions
 - percentage(47, App\Post::get()); // 63.829787234043
