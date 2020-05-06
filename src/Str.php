@@ -61,4 +61,10 @@ class Str extends \Illuminate\Support\Str
 		}
 		return $string;
 	}
+
+	public function isJson ($value)
+	{
+		json_decode($value);
+        return json_last_error() === JSON_ERROR_NONE;
+	}
 }
