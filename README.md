@@ -31,6 +31,8 @@ Below you will find a list of function in the helper package
 
 ## URL
 - URL::isInternal('url')
+- URL::buildFromArray($array)
+- URL::isNova($request)
 
 ## Str
 - Str::cleanPhoneNumber()
