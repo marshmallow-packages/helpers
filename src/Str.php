@@ -19,6 +19,51 @@ class Str extends \Illuminate\Support\Str
 		return preg_replace('/[^\w]/', '', $string);
 	}
 
+	public function readmore ($string, $lenght_first_part, $return_this_part = null)
+	{
+		$new_parts = [];
+		$parts = $this->paragraphsAsArray($string);
+		if (is_string($parts)) {
+			$new_parts = [
+				substr($string, 0, $lenght_first_part),
+				substr($string, $lenght_first_part),
+			];
+		} else {
+			$string_builder = '';
+
+			foreach ($parts as $part) {
+				$paragraph_content = $this->getParagraphContent($part);
+				$string_builder .= $paragraph_content;
+
+				if (isset($new_parts[0])) {
+					if (!isset($new_parts[1])) {
+						$new_parts[1] = '';
+					}
+					$new_parts[1] .= $part;
+					continue;
+				}
+
+				if (strlen($string_builder) > $lenght_first_part) {
+					$new_parts[0] = '<p>'. substr($paragraph_content, 0, $lenght_first_part) .'</p>';
+					$new_parts[1] = '<p>'. trim(substr($paragraph_content, $lenght_first_part)) .'</p>';
+				} else if (strlen($string_builder) == $lenght_first_part) {
+					$new_parts[0] = '<p>'. $paragraph_content .'</p>';
+				}
+			}
+		}
+
+		if ($return_this_part) {
+			return $new_parts[($return_this_part - 1)];
+		}
+		return $new_parts;
+	}
+
+	public function getParagraphContent ($paragraph)
+	{	
+		preg_match("/<p>(.+?)<\/p>/i", $paragraph, $matches);
+		return $matches[1];
+	}
+
 	public function paragraphsAsArray ($string)
 	{
 		preg_match_all('%(<p[^>]*>.*?</p>)%i', $string, $matches);

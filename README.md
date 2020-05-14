@@ -38,6 +38,7 @@ Below you will find a list of function in the helper package
 - Str::cleanPhoneNumber()
 - Str::numbersOnly()
 - Str::numbersAndLettersOnly()
+- Str::readmore($string, $lenght_first_part, $return_this_part = null)
 - Str::paragraphsAsArray($string)
 - Str::getFirstParagraph($string, $number_of_paragraphs = 1, $return_array = false)
 - Str::getAllButFirstParagraph($string, $number_of_paragraphs_to_skip = 1, $return_array = false)
