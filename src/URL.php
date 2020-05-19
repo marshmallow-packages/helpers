@@ -28,6 +28,9 @@ class URL extends \Illuminate\Support\Facades\URL
 
 	public function isNova ($request)
 	{
-		return (isset($request->segments()[0]) && $request->segments()[0] === ltrim(config('nova.path'), '/'));
+		return (isset($request->segments()[0]) && in_array($request->segments()[0], [
+			'nova-api',
+			ltrim(config('nova.path'), '/')
+		]));
 	}
 }
