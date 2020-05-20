@@ -21,7 +21,7 @@ With the marshmallow helper package, you will get a lot of helper functions to u
 
 ### Installing
 ```
-composer require marshmallow/laravel-helpers
+composer require marshmallow/helpers
 ```
 
 Next, you will have access to al the marshmallow helper functions. You can override these functions in your own project if you're not happy with what the function is doing. Please remember, update the function in de package is best practice.
