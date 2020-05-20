@@ -33,4 +33,9 @@ class URL extends \Illuminate\Support\Facades\URL
 			ltrim(config('nova.path'), '/')
 		]));
 	}
+
+	public function isNotNova ($request)
+	{
+		return (!$this->isNova($request));
+	}
 }

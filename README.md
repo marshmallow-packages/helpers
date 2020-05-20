@@ -33,6 +33,7 @@ Below you will find a list of function in the helper package
 - URL::isInternal('url')
 - URL::buildFromArray($array)
 - URL::isNova($request)
+- URL::isNotNova($request)
 
 ## Str
 - Str::cleanPhoneNumber()
