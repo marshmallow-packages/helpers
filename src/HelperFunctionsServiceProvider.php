@@ -32,7 +32,7 @@ class HelperFunctionsServiceProvider extends ServiceProvider
     {
         $files = Finder::create()
             ->files()
-            ->in(__DIR__ . '/helpers')
+            ->in(__DIR__ . '/HelperFunctions')
             ->name('*.php');
 
         foreach ($files as $file) {
