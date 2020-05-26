@@ -33,6 +33,7 @@
             ],
             "aliases": {
                 "Str": "Marshmallow\\HelperFunctions\\Facades\\Str",
+                "Ip": "Marshmallow\\HelperFunctions\\Facades\\Ip",
                 "URL": "Marshmallow\\HelperFunctions\\Facades\\URL",
                 "ReviewHelper": "Marshmallow\\HelperFunctions\\Facades\\ReviewHelper",
                 "BuilderHelper": "Marshmallow\\HelperFunctions\\Facades\\BuilderHelper"
