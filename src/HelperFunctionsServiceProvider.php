@@ -15,11 +15,11 @@ class HelperFunctionsServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(Str::class, function ($app) {
-            return new Str();
+            return new Str;
         });
 
         $this->app->singleton(URL::class, function ($app) {
-            return new URL();
+            return new URL;
         });
     }
 
