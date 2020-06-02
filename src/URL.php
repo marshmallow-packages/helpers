@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Marshmallow\HelperFunctions;
 
@@ -30,6 +30,7 @@ class URL extends \Illuminate\Support\Facades\URL
 	{
 		return (isset($request->segments()[0]) && in_array($request->segments()[0], [
 			'nova-api',
+            'nova-vendor',
 			ltrim(config('nova.path'), '/')
 		]));
 	}
