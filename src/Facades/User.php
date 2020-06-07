@@ -3,12 +3,12 @@
 namespace Marshmallow\HelperFunctions\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Marshmallow\HelperFunctions\UrlHelper;
+use Marshmallow\HelperFunctions\UserHelper;
 
-class URL extends Facade
+class User extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return UrlHelper::class;
+        return UserHelper::class;
     }
 }

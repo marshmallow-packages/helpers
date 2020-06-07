@@ -1,16 +1,14 @@
-<?php 
+<?php
 
 namespace Marshmallow\HelperFunctions\Facades;
 
-/**
- */
-class Str extends \Illuminate\Support\Facades\Facade
+use Illuminate\Support\Facades\Facade;
+use Marshmallow\HelperFunctions\StrHelper;
+
+class Str extends Facade
 {
-    /**
-     * {@inheritDoc}
-     */
     protected static function getFacadeAccessor()
     {
-        return \Marshmallow\HelperFunctions\Str::class;
+        return StrHelper::class;
     }
 }

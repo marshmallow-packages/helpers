@@ -1,25 +1,25 @@
-<?php 
+<?php
 
 namespace Marshmallow\HelperFunctions;
 
-class Str extends \Illuminate\Support\Str
+class StrHelper extends \Illuminate\Support\Str
 {
-	public function cleanPhoneNumber ($phone_number)
+	public function cleanPhoneNumber($phone_number)
 	{
 		return $this->numbersOnly($phone_number);
 	}
 
-	public function numbersOnly ($string)
+	public function numbersOnly($string)
 	{
 		return preg_replace('/[^0-9]/', '', $string);
 	}
 
-	public function numbersAndLettersOnly ($string)
+	public function numbersAndLettersOnly($string)
 	{
 		return preg_replace('/[^\w]/', '', $string);
 	}
 
-	public function readmore ($string, $lenght_first_part, $return_this_part = null)
+	public function readmore($string, $lenght_first_part, $return_this_part = null)
 	{
 		$new_parts = [];
 		$parts = $this->paragraphsAsArray($string);
@@ -46,7 +46,7 @@ class Str extends \Illuminate\Support\Str
 				if (strlen($string_builder) > $lenght_first_part) {
 					$new_parts[0] = '<p>'. substr($paragraph_content, 0, $lenght_first_part) .'</p>';
 					$new_parts[1] = '<p>'. trim(substr($paragraph_content, $lenght_first_part)) .'</p>';
-				} else if (strlen($string_builder) == $lenght_first_part) {
+				} elseif (strlen($string_builder) == $lenght_first_part) {
 					$new_parts[0] = '<p>'. $paragraph_content .'</p>';
 				}
 			}
@@ -58,13 +58,13 @@ class Str extends \Illuminate\Support\Str
 		return $new_parts;
 	}
 
-	public function getParagraphContent ($paragraph)
-	{	
+	public function getParagraphContent($paragraph)
+	{
 		preg_match("/<p>(.+?)<\/p>/i", $paragraph, $matches);
 		return $matches[1];
 	}
 
-	public function paragraphsAsArray ($string)
+	public function paragraphsAsArray($string)
 	{
 		preg_match_all('%(<p[^>]*>.*?</p>)%i', $string, $matches);
 		if (isset($matches[0]) && !empty($matches[0])) {
@@ -73,12 +73,12 @@ class Str extends \Illuminate\Support\Str
 		return $string;
 	}
 
-	public function getFirstParagraph ($string, $number_of_paragraphs = 1, $return_array = false)
+	public function getFirstParagraph($string, $number_of_paragraphs = 1, $return_array = false)
 	{
 		$paragraphs = $this->paragraphsAsArray($string);
 		if (is_array($paragraphs)) {
 			$return_paragraphs = [];
-			for ($i=0; $i < $number_of_paragraphs; $i++) { 
+			for ($i=0; $i < $number_of_paragraphs; $i++) {
 				$return_paragraphs[] = $paragraphs[$i];
 			}
 
@@ -91,11 +91,11 @@ class Str extends \Illuminate\Support\Str
 		return $string;
 	}
 
-	public function getAllButFirstParagraph ($string, $number_of_paragraphs_to_skip = 1, $return_array = false)
+	public function getAllButFirstParagraph($string, $number_of_paragraphs_to_skip = 1, $return_array = false)
 	{
 		$paragraphs = $this->paragraphsAsArray($string);
 		if (is_array($paragraphs)) {
-			for ($i=0; $i < $number_of_paragraphs_to_skip; $i++) { 
+			for ($i=0; $i < $number_of_paragraphs_to_skip; $i++) {
 				unset($paragraphs[$i]);
 			}
 
@@ -107,7 +107,7 @@ class Str extends \Illuminate\Support\Str
 		return $string;
 	}
 
-	public function isJson ($value)
+	public function isJson($value)
 	{
 		json_decode($value);
         return json_last_error() === JSON_ERROR_NONE;

@@ -1,6 +1,6 @@
 <?php
 
-	function ping ()
-	{
-		return 'pong BAM BAM';
-	}
+function ping()
+{
+	return 'pong BAM BAM';
+}

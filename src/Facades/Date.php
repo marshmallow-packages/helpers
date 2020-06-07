@@ -2,15 +2,13 @@
 
 namespace Marshmallow\HelperFunctions\Facades;
 
-/**
- */
-class Date extends \Illuminate\Support\Facades\Facade
+use Illuminate\Support\Facades\Facade;
+use Marshmallow\HelperFunctions\DateHelper;
+
+class Date extends Facade
 {
-    /**
-     * {@inheritDoc}
-     */
     protected static function getFacadeAccessor()
     {
-        return \Marshmallow\HelperFunctions\Date::class;
+        return DateHelper::class;
     }
 }

@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 namespace Marshmallow\HelperFunctions;
 
 class ReviewHelper
 {
-	public function ratingToStars (float $rating, $config_overrule = [])
+	public function ratingToStars(float $rating, $config_overrule = [])
 	{
 		$max_rating = config('review.max_rating', 5);
 		$full_star = config('review.full_star', '<i class="fas fa-star"></i>');
@@ -25,16 +25,16 @@ class ReviewHelper
 		}
 
 		$stars_string = '';
-		for ($i=1; $i <= $max_rating; $i++) { 
-			if($rating < $i ) {
-		        if(is_float($rating) && (round($rating) == $i)){
+		for ($i=1; $i <= $max_rating; $i++) {
+			if ($rating < $i) {
+		        if (is_float($rating) && (round($rating) == $i)) {
 		            $stars_string .= $half_star;
-		        }else{
+		        } else {
 		            $stars_string .= $empty_star;
 		        }
-		     }else {
+            } else {
 		        $stars_string .= $full_star;
-		     }
+            }
 		}
 		return $stars_string;
 	}

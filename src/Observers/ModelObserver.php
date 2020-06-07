@@ -14,7 +14,7 @@ class ModelObserver
     	}
     }
 
-	public static function observe ($class_name)
+	public static function observe($class_name)
 	{
 		$class_name::observe(
 			ModelObserver::class

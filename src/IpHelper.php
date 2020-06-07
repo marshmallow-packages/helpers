@@ -2,9 +2,9 @@
 
 namespace Marshmallow\HelperFunctions;
 
-class Ip
+class IpHelper
 {
-    public function forcedIpv4 ($ip_address = null)
+    public function forcedIpv4($ip_address = null)
     {
         if (!$ip_address) {
             $ip_address = request()->ip();
@@ -18,7 +18,7 @@ class Ip
         return $ip_address;
     }
 
-    public function convert6to4 ($ip_address)
+    public function convert6to4($ip_address)
     {
         return hexdec(substr($ip_address, 0, 2)). "." . hexdec(substr($ip_address, 2, 2)). "." . hexdec(substr($ip_address, 5, 2)). "." . hexdec(substr($ip_address, 7, 2));
     }

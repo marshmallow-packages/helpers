@@ -3,9 +3,11 @@
 namespace Marshmallow\HelperFunctions;
 
 use Symfony\Component\Finder\Finder;
-use Illuminate\Support\ServiceProvider;
+use Marshmallow\HelperFunctions\StrHelper;
+use Marshmallow\HelperFunctions\UrlHelper;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class HelperFunctionsServiceProvider extends ServiceProvider
+class ServiceProvider extends BaseServiceProvider
 {
     /**
      * Register services.
@@ -14,12 +16,12 @@ class HelperFunctionsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Str::class, function ($app) {
-            return new Str;
+        $this->app->singleton(StrHelper::class, function ($app) {
+            return new StrHelper;
         });
 
-        $this->app->singleton(URL::class, function ($app) {
-            return new URL;
+        $this->app->singleton(UrlHelper::class, function ($app) {
+            return new UrlHelper;
         });
     }
 

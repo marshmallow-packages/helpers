@@ -4,7 +4,7 @@ namespace Marshmallow\HelperFunctions;
 
 use Carbon\Carbon;
 
-class Date
+class DateHelper
 {
     const MONDAY = 1;
     const TUESDAY = 2;

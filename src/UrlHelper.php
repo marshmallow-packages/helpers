@@ -2,19 +2,20 @@
 
 namespace Marshmallow\HelperFunctions;
 
-class URL extends \Illuminate\Support\Facades\URL
+use \Illuminate\Support\Facades\URL;
+
+class UrlHelper extends URL
 {
-	public function isInternal ($url)
+	public function isInternal($url)
 	{
 		return strpos($url, env('APP_URL')) === 0;
 	}
 
-	public function buildFromArray (array $url_parts): string
+	public function buildFromArray(array $url_parts): string
 	{
 		$url_parts = array_filter($url_parts);
 		$route = '/';
 		foreach ($url_parts as $part) {
-
 			$part = rtrim($part, '/');
 			$part = ltrim($part, '/');
 
@@ -26,7 +27,7 @@ class URL extends \Illuminate\Support\Facades\URL
 		return $route;
 	}
 
-	public function isNova ($request)
+	public function isNova($request)
 	{
 		return (isset($request->segments()[0]) && in_array($request->segments()[0], [
 			'nova-api',
@@ -35,7 +36,7 @@ class URL extends \Illuminate\Support\Facades\URL
 		]));
 	}
 
-	public function isNotNova ($request)
+	public function isNotNova($request)
 	{
 		return (!$this->isNova($request));
 	}

@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Marshmallow\HelperFunctions\Facades\Str;
+
 class StrTest extends TestCase
 {
     public function testcleanPhoneNumber()

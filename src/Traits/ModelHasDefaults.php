@@ -10,7 +10,7 @@ trait ModelHasDefaults
 	 * when creating a new resource record.
 	 * @param array $params [description]
 	 */
-	public function __construct ($params = [])
+	public function __construct($params = [])
 	{
 		$default_attributes = $this->defaultAttributes();
 		foreach ($default_attributes as $column => $default_value) {
@@ -18,7 +18,7 @@ trait ModelHasDefaults
 				$params[$column] = $default_value;
 			}
 		}
-		
+
 		parent::__construct($params);
 	}
 
@@ -27,7 +27,7 @@ trait ModelHasDefaults
 	 * This is called when your are saving a model resource.
 	 * @return [type] [description]
 	 */
-	public function applyDefaultAttributes ()
+	public function applyDefaultAttributes()
 	{
 		$default_attributes = $this->defaultAttributes();
 		foreach ($default_attributes as $column => $default_value) {
@@ -37,7 +37,7 @@ trait ModelHasDefaults
 		}
 	}
 
-	abstract protected function defaultAttributes (): array;
+	abstract protected function defaultAttributes(): array;
 
 	/**
 	 * To handle default we need an observer. We use our own
@@ -45,6 +45,6 @@ trait ModelHasDefaults
 	 * for every project. This is now down automaticly.
 	 * @return [type] [description]
 	 */
-	abstract public static function getObserver (): string;
-	abstract public static function bootObserver (): void;
+	abstract public static function getObserver(): string;
+	abstract public static function bootObserver(): void;
 }

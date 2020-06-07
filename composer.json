@@ -29,15 +29,16 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Marshmallow\\HelperFunctions\\HelperFunctionsServiceProvider"
+                "Marshmallow\\HelperFunctions\\ServiceProvider"
             ],
             "aliases": {
-                "Str": "Marshmallow\\HelperFunctions\\Facades\\Str",
-                "Ip": "Marshmallow\\HelperFunctions\\Facades\\Ip",
-                "URL": "Marshmallow\\HelperFunctions\\Facades\\URL",
+                "Builder": "Marshmallow\\HelperFunctions\\Facades\\Builder",
                 "Date": "Marshmallow\\HelperFunctions\\Facades\\Date",
-                "ReviewHelper": "Marshmallow\\HelperFunctions\\Facades\\ReviewHelper",
-                "BuilderHelper": "Marshmallow\\HelperFunctions\\Facades\\BuilderHelper"
+                "Ip": "Marshmallow\\HelperFunctions\\Facades\\Ip",
+                "Review": "Marshmallow\\HelperFunctions\\Facades\\Review",
+                "Str": "Marshmallow\\HelperFunctions\\Facades\\Str",
+                "URL": "Marshmallow\\HelperFunctions\\Facades\\URL",
+                "User": "Marshmallow\\HelperFunctions\\Facades\\User"
             }
         }
     }

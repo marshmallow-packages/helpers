@@ -24,6 +24,11 @@ With the marshmallow helper package, you will get a lot of helper functions to u
 composer require marshmallow/helpers
 ```
 
+## Updating
+If you are updating from v1 to v2. Please note the breaking changes below:
+ - BuilderHelper is renamed to Builder (Facade)
+ - ReviewHelper is renamed to Review (Facade)
+
 Next, you will have access to al the marshmallow helper functions. You can override these functions in your own project if you're not happy with what the function is doing. Please remember, update the function in de package is best practice.
 
 ### Available facades

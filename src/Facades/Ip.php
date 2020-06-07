@@ -2,15 +2,13 @@
 
 namespace Marshmallow\HelperFunctions\Facades;
 
-/**
- */
-class Ip extends \Illuminate\Support\Facades\Facade
+use Illuminate\Support\Facades\Facade;
+use Marshmallow\HelperFunctions\IpHelper;
+
+class Ip extends Facade
 {
-    /**
-     * {@inheritDoc}
-     */
     protected static function getFacadeAccessor()
     {
-        return \Marshmallow\HelperFunctions\Ip::class;
+        return IpHelper::class;
     }
 }
