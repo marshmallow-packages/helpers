@@ -4,6 +4,16 @@ namespace Marshmallow\HelperFunctions;
 
 class StrHelper extends \Illuminate\Support\Str
 {
+	public function remove($string, $remove)
+	{
+		return str_replace($remove, '', $string);
+	}
+
+	public function removeSpaces($string)
+	{
+		return $this->remove($string, ' ');
+	}
+
 	public function cleanPhoneNumber($phone_number)
 	{
 		return $this->numbersOnly($phone_number);
