@@ -11,6 +11,11 @@ class UrlHelper extends URL
 		return strpos($url, env('APP_URL')) === 0;
 	}
 
+	public function escape($url)
+	{
+		return str_replace('/', '\\\\/', $url);
+	}
+
 	public function buildFromArray(array $url_parts): string
 	{
 		$url_parts = array_filter($url_parts);
