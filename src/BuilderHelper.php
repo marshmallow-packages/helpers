@@ -13,7 +13,7 @@ class BuilderHelper
 	 * @param  string  $valid_till_column Column name in the database
 	 * @return Illuminate\Database\Eloquent\Builder
 	 */
-	public function activeBetweenDates(Builder $builder, $valid_from_column = 'valid_from', $valid_till_column = 'valid_till')
+	public function published(Builder $builder, $valid_from_column = 'valid_from', $valid_till_column = 'valid_till')
 	{
 		$builder->where(function ($builder) use ($valid_from_column, $valid_till_column) {
 			/**
@@ -41,5 +41,11 @@ class BuilderHelper
 		});
 
 		return $builder;
+	}
+
+	public function activeBetweenDates(Builder $builder, $valid_from_column = 'valid_from', $valid_till_column = 'valid_till')
+	{
+		trigger_error('activeBetweenDates is deprecated and will be removed in the next version. Please use published() instead.', E_DEPRECATED);
+		return $this->published($builder, $valid_from_column, $valid_till_column);
 	}
 }

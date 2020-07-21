@@ -2,8 +2,15 @@
 
 namespace Marshmallow\HelperFunctions;
 
+use Marshmallow\HelperFunctions\StringableHelper;
+
 class StrHelper extends \Illuminate\Support\Str
 {
+	public static function of($string)
+    {
+        return new StringableHelper($string);
+    }
+
 	public function remove($string, $remove)
 	{
 		return str_replace($remove, '', $string);
