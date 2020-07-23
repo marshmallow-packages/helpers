@@ -11,6 +11,11 @@ class StrHelper extends \Illuminate\Support\Str
         return new StringableHelper($string);
     }
 
+    public static function generate()
+    {
+        return new StringableHelper('');
+    }
+
 	public function remove($string, $remove)
 	{
 		return str_replace($remove, '', $string);

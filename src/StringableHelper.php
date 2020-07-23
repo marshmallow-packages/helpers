@@ -9,6 +9,12 @@ use Marshmallow\HelperFunctions\Facades\Str;
 
 class StringableHelper extends Stringable
 {
+	public function random($length = 16)
+	{
+		$this->value .= Str::random($length);
+		return $this;
+	}
+
 	public function __call($name, $arguments)
     {
     	if (!method_exists(StrHelper::class, $name)) {
