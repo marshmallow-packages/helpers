@@ -134,4 +134,27 @@ class StrHelper extends \Illuminate\Support\Str
 		json_decode($value);
         return json_last_error() === JSON_ERROR_NONE;
 	}
+
+	/**
+     * Determine whether any of the provided strings in
+     * the haystack contain the needle.
+     *
+     * @param  array  $haystacks
+     * @param  string  $needle
+     * @return bool
+     */
+	public function anyContains($haystacks, $needle)
+	{
+		$haystacks = (array) $haystacks;
+
+        foreach ($haystacks as $haystack) {
+            if (is_array($haystack)) {
+                return $this->anyContains($haystack, $needle);
+            } elseif (self::contains(strtolower($haystack), strtolower($needle))) {
+                return true;
+            }
+        }
+
+        return false;
+	}
 }
