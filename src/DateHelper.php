@@ -63,7 +63,7 @@ class DateHelper
 
         while (true) {
             $date->addDay();
-            if (!in_array($date->isoFormat('d'), $this->weekend_days)) {
+            if (! in_array($date->isoFormat('d'), $this->weekend_days)) {
                 $days_added++;
             }
             if ($days_added === $days_to_add) {
