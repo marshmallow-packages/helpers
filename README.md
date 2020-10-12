@@ -1,92 +1,39 @@
-<p align="center">
-    <img src="https://cdn.marshmallow-office.com/media/images/logo/marshmallow.transparent.red.png">
-</p>
-<p align="center">
-    <a href="https://github.com/Marshmallow-Development">
-        <img src="https://img.shields.io/github/issues/Marshmallow-Development/package-helper-functions.svg" alt="Issues">
-    </a>
-    <a href="https://github.com/Marshmallow-Development">
-        <img src="https://img.shields.io/github/forks/Marshmallow-Development/package-helpers-functions.svg" alt="Forks">
-    </a>
-    <a href="https://github.com/Marshmallow-Development">
-        <img src="https://img.shields.io/github/stars/Marshmallow-Development/package-helpers-functions.svg" alt="Stars">
-    </a>
-    <a href="https://github.com/Marshmallow-Development">
-        <img src="https://img.shields.io/github/license/Marshmallow-Development/package-helpers-functions.svg" alt="License">
-    </a>
-</p>
+![alt text](https://marshmallow.dev/cdn/media/logo-red-237x46.png "marshmallow.")
 
-# Marshmallow Helpers
-With the marshmallow helper package, you will get a lot of helper functions to use through your marshmallow applications.
+# Marshmallow Deployer
+[![Version](https://img.shields.io/packagist/v/marshmallow/helpers)](https://github.com/marshmallow-packages/helpers)
+[![Issues](https://img.shields.io/github/issues/marshmallow-packages/helpers)](https://github.com/marshmallow-packages/helpers)
+[![Code Coverage](https://img.shields.io/badge/coverage-100%25-success)](https://github.com/marshmallow-packages/helpers)
+[![Licence](https://img.shields.io/github/license/marshmallow-packages/helpers)](https://github.com/marshmallow-packages/helpers)
 
-### Installing
-```
+## Installation
+
+You can install the package via composer:
+``` bash
 composer require marshmallow/helpers
 ```
 
-## Updating
-If you are updating from v1 to v2. Please note the breaking changes below:
- - BuilderHelper is renamed to Builder (Facade)
- - ReviewHelper is renamed to Review (Facade)
+## Usage
+Please reference the official documentation at [MrMallow Documentation](https://mrmallow.nl/packages/support/helpers.html)
 
-Next, you will have access to al the marshmallow helper functions. You can override these functions in your own project if you're not happy with what the function is doing. Please remember, update the function in de package is best practice.
+## Changelog
 
-### Available facades
-Below you will find a list of function in the helper package
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
-## URL
-- URL::isInternal('url')
-- URL::buildFromArray($array)
-- URL::isNova($request)
-- URL::isNotNova($request)
+## Testing
 
-## Str
-- Str::cleanPhoneNumber()
-- Str::numbersOnly()
-- Str::numbersAndLettersOnly()
-- Str::readmore($string, $lenght_first_part, $return_this_part = null)
-- Str::paragraphsAsArray($string)
-- Str::getFirstParagraph($string, $number_of_paragraphs = 1, $return_array = false)
-- Str::getAllButFirstParagraph($string, $number_of_paragraphs_to_skip = 1, $return_array = false)
-
-This Str can also make use of the `Str::of()` method so you can use it like this `Str::of($this->name)->upper()->numbersAndLettersOnly();
-`.
-
-## Builder
-`BuilderHelper::published` will filter on database columns if something is published.
-public function scopePublished (Builder $builder)
-{
-	BuilderHelper::published($builder, $valid_from_column, $valid_till_column);
-}
-
-### Available helper functions
-- percentage(47, App\Post::get()); // 63.829787234043
-
-## ReviewStars
-For the review stars you can call `ReviewHelper::ratingToStars(4.5)`. By default the ReviewHelper will think you are using a max rating of 5, support half star rating and return a string of FontAwesome icons. You can overule this behaviour by;
-
-### Customise
-Create the config file `config/review.php` and specify your needs:
-```
-<?php
-
-return [
-    'max_rating' => 10,
-    'full_star' => '+ ',
-    'half_star' => '* ',
-    'empty_star' => '- ',
-];
+```bash
+composer test
 ```
 
-Or you can provide the same config array as a second parameter to the `ratingToStars` method like so;
-```
-ReviewHelper::ratingToStars(4.5, [
-    'max_rating' => 10,
-    'full_star' => '+ ',
-    'half_star' => '* ',
-    'empty_star' => '- ',
-])
-```
+## Security
 
-## Tests during development
-`php artisan test packages/marshmallow/helpers`
+If you discover any security related issues, please email stef@marshmallow.dev instead of using the issue tracker.
+
+## Credits
+
+- [All Contributors](../../contributors)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

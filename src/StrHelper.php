@@ -31,6 +31,27 @@ class StrHelper extends \Illuminate\Support\Str
 		return $this->numbersOnly($phone_number);
 	}
 
+    public function phonenumberWithCountryCode($phone_number, $country_code = '31', $use_plus_instead_of_zeros = true)
+    {
+        $phone_number = $this->cleanPhoneNumber($phone_number);
+
+        if (substr($phone_number, 0, 2) == '00') {
+            $phone_number = substr($phone_number, 2, strlen($phone_number));
+        }
+
+        if (substr($phone_number, 0, 2) == $country_code) {
+            $phone_number = '0' . substr($phone_number, 2, strlen($phone_number));
+        }
+
+        $phone_number = $country_code . substr($phone_number, 1, strlen($phone_number));
+
+        if (!$use_plus_instead_of_zeros) {
+            return '00' . $phone_number;
+        }
+
+        return '+' . $phone_number;
+    }
+
 	public function numbersOnly($string)
 	{
 		return preg_replace('/[^0-9]/', '', $string);
