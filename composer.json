@@ -1,7 +1,7 @@
 {
     "name": "marshmallow/helpers",
     "description": "A package containing all the helper function we can use throughout all our projects",
-    "keywords": ["marshmallow"],
+    "keywords": ["marshmallow", "Laravel Helpers"],
     "homepage": "https://github.com/Marshmallow-Development/",
     "type": "library",
     "license": "MIT",
@@ -19,13 +19,22 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.0.0",
-        "laravel/helpers": "^1.3"
+        "laravel/helpers": "^1.3",
+        "illuminate/database": "^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.3",
+        "orchestra/testbench": "^6.2"
     },
     "autoload": {
         "psr-4": {"Marshmallow\\HelperFunctions\\": "src"}
     },
     "autoload-dev": {
-        "psr-4": {"Marshmallow\\HelperFunctions\\": "src"}
+        "psr-4": {"Marshmallow\\HelperFunctions\\Tests\\": "tests"}
+    },
+     "scripts": {
+        "test": "vendor/bin/phpunit --coverage-text"
     },
     "extra": {
         "laravel": {
