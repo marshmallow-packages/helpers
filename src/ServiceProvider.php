@@ -2,10 +2,8 @@
 
 namespace Marshmallow\HelperFunctions;
 
-use Symfony\Component\Finder\Finder;
-use Marshmallow\HelperFunctions\StrHelper;
-use Marshmallow\HelperFunctions\UrlHelper;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use Symfony\Component\Finder\Finder;
 
 class ServiceProvider extends BaseServiceProvider
 {

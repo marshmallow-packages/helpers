@@ -6,7 +6,7 @@ class IpHelper
 {
     public function forcedIpv4($ip_address = null)
     {
-        if (!$ip_address) {
+        if (! $ip_address) {
             $ip_address = request()->ip();
         }
 

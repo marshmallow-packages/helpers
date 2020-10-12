@@ -2,5 +2,5 @@
 
 function ping()
 {
-	return 'pong BAM BAM';
+    return 'pong BAM BAM';
 }

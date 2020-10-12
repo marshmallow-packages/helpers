@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait HasChildren
 {
-	/**
+    /**
      * Gebruik deze scope om de top level categorien
      * op te halen via: ProductCategory::parents()->ordered()->get();
      */

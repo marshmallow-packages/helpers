@@ -6,43 +6,44 @@ use \Illuminate\Support\Facades\URL;
 
 class UrlHelper extends URL
 {
-	public function isInternal($url)
-	{
-		return strpos($url, env('APP_URL')) === 0;
-	}
+    public function isInternal($url)
+    {
+        return strpos($url, env('APP_URL')) === 0;
+    }
 
-	public function escape($url)
-	{
-		return str_replace('/', '\\\\/', $url);
-	}
+    public function escape($url)
+    {
+        return str_replace('/', '\\\\/', $url);
+    }
 
-	public function buildFromArray(array $url_parts): string
-	{
-		$url_parts = array_filter($url_parts);
-		$route = '/';
-		foreach ($url_parts as $part) {
-			$part = rtrim($part, '/');
-			$part = ltrim($part, '/');
+    public function buildFromArray(array $url_parts): string
+    {
+        $url_parts = array_filter($url_parts);
+        $route = '/';
+        foreach ($url_parts as $part) {
+            $part = rtrim($part, '/');
+            $part = ltrim($part, '/');
 
-			if (substr($route, -1) !== '/' && substr($part, 0, 1) !== '/') {
-				$route .= '/';
-			}
-			$route .= $part;
-		}
-		return $route;
-	}
+            if (substr($route, -1) !== '/' && substr($part, 0, 1) !== '/') {
+                $route .= '/';
+            }
+            $route .= $part;
+        }
 
-	public function isNova($request)
-	{
-		return (isset($request->segments()[0]) && in_array($request->segments()[0], [
-			'nova-api',
+        return $route;
+    }
+
+    public function isNova($request)
+    {
+        return (isset($request->segments()[0]) && in_array($request->segments()[0], [
+            'nova-api',
             'nova-vendor',
-			ltrim(config('nova.path'), '/')
-		]));
-	}
+            ltrim(config('nova.path'), '/'),
+        ]));
+    }
 
-	public function isNotNova($request)
-	{
-		return (!$this->isNova($request));
-	}
+    public function isNotNova($request)
+    {
+        return (! $this->isNova($request));
+    }
 }
