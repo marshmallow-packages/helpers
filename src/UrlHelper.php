@@ -8,7 +8,7 @@ class UrlHelper extends URL
 {
     public function isInternal($url)
     {
-        return strpos($url, env('APP_URL')) === 0;
+        return strpos($url, config('app.url')) === 0;
     }
 
     public function escape($url)
