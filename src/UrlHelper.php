@@ -6,6 +6,15 @@ use \Illuminate\Support\Facades\URL;
 
 class UrlHelper extends URL
 {
+    public function isCurrent($url)
+    {
+        if ($url === request()->url() || $url === request()->path()) {
+            return true;
+        }
+
+        return false;
+    }
+
     public function isInternal($url)
     {
         return strpos($url, config('app.url')) === 0;
