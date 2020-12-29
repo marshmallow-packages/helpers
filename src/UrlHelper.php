@@ -16,6 +16,18 @@ class UrlHelper extends URL
         return str_replace('/', '\\\\/', $url);
     }
 
+    public function routeUriExists($uri)
+    {
+        $routes = \Route::getRoutes()->getRoutes();
+        foreach ($routes as $r) {
+            if ($r->uri == $uri) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function buildFromArray(array $url_parts): string
     {
         $url_parts = array_filter($url_parts);
