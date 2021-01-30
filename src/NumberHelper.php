@@ -9,7 +9,7 @@ class NumberHelper
         $test_counter = 0;
         $odd_even = 'even';
 
-        for ($i=0; $i <= $loop_count; $i++) {
+        for ($i = 0; $i <= $loop_count; $i++) {
             $test_counter++;
             $keys[$i] = $odd_even;
 

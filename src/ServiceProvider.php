@@ -2,8 +2,8 @@
 
 namespace Marshmallow\HelperFunctions;
 
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Symfony\Component\Finder\Finder;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
 {
