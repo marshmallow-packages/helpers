@@ -4,6 +4,80 @@ namespace Marshmallow\HelperFunctions;
 
 class StrHelper extends \Illuminate\Support\Str
 {
+    /**
+     * Generate a more truly "random" alpha-numeric string.
+     *
+     * @param  int  $length
+     * @param  array  $ignore
+     * @return string
+     */
+    public static function random($length = 16, array $ignore = [])
+    {
+        $string = '';
+
+        if (in_array('letters', $ignore)) {
+            $key = array_search('letters', $ignore);
+            unset($ignore[$key]);
+            $ignore = array_merge($ignore, [
+                'lowercase', 'uppercase',
+            ]);
+        }
+
+        if (in_array('lowercase', $ignore)) {
+            $key = array_search('lowercase', $ignore);
+            unset($ignore[$key]);
+            $ignore = array_merge($ignore, [
+                'a', 'b', 'c', 'd', 'e', 'f',
+                'g', 'h', 'i', 'j', 'k', 'l',
+                'm', 'n', 'o', 'p', 'q', 'r',
+                's', 't', 'u', 'v', 'w', 'x',
+                'y', 'z',
+            ]);
+        }
+
+        if (in_array('uppercase', $ignore)) {
+            $key = array_search('uppercase', $ignore);
+            unset($ignore[$key]);
+            $ignore = array_merge($ignore, [
+                'A','B', 'C', 'D', 'E','F',
+                'G', 'H', 'I','J', 'K', 'L',
+                'M','N', 'O', 'P','Q', 'R',
+                'S', 'T', 'U','V', 'W', 'X',
+                'Y','Z',
+            ]);
+        }
+
+        if (in_array('numbers', $ignore)) {
+            $key = array_search('numbers', $ignore);
+            unset($ignore[$key]);
+            $ignore = array_merge($ignore, [
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 0
+            ]);
+        }
+
+        if (in_array('similar', $ignore)) {
+            $key = array_search('similar', $ignore);
+            unset($ignore[$key]);
+            $ignore = array_merge($ignore, [
+                '0', 'O', 'D', 'Q', '0',
+                '1', 'I', 'L', 'J',
+                '8', 'B',
+                '5', 'S',
+                '2', 'Z',
+            ]);
+        }
+
+        while (($len = strlen($string)) < $length) {
+            $size = $length - $len;
+
+            $bytes = random_bytes($size);
+
+            $string .= substr(str_replace(array_merge(['/', '+', '='], $ignore), '', base64_encode($bytes)), 0, $size);
+        }
+
+        return $string;
+    }
+
     public static function of($string)
     {
         return new StringableHelper($string);
