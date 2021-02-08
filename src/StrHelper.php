@@ -59,7 +59,7 @@ class StrHelper extends \Illuminate\Support\Str
             $key = array_search('similar', $ignore);
             unset($ignore[$key]);
             $ignore = array_merge($ignore, [
-                '0', 'O', 'D', 'Q', '0',
+                '0', 'O', 'D', 'Q', 'o',
                 '1', 'I', 'L', 'J',
                 '8', 'B',
                 '5', 'S',
