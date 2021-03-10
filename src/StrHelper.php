@@ -39,11 +39,11 @@ class StrHelper extends \Illuminate\Support\Str
             $key = array_search('uppercase', $ignore);
             unset($ignore[$key]);
             $ignore = array_merge($ignore, [
-                'A','B', 'C', 'D', 'E','F',
-                'G', 'H', 'I','J', 'K', 'L',
-                'M','N', 'O', 'P','Q', 'R',
-                'S', 'T', 'U','V', 'W', 'X',
-                'Y','Z',
+                'A', 'B', 'C', 'D', 'E', 'F',
+                'G', 'H', 'I', 'J', 'K', 'L',
+                'M', 'N', 'O', 'P', 'Q', 'R',
+                'S', 'T', 'U', 'V', 'W', 'X',
+                'Y', 'Z',
             ]);
         }
 
@@ -117,7 +117,7 @@ class StrHelper extends \Illuminate\Support\Str
 
         $phone_number = $country_code . substr($phone_number, 1, strlen($phone_number));
 
-        if (! $use_plus_instead_of_zeros) {
+        if (!$use_plus_instead_of_zeros) {
             return '00' . $phone_number;
         }
 
@@ -151,7 +151,7 @@ class StrHelper extends \Illuminate\Support\Str
                 $string_builder .= $paragraph_content;
 
                 if (isset($new_parts[0])) {
-                    if (! isset($new_parts[1])) {
+                    if (!isset($new_parts[1])) {
                         $new_parts[1] = '';
                     }
                     $new_parts[1] .= $part;
@@ -160,10 +160,10 @@ class StrHelper extends \Illuminate\Support\Str
                 }
 
                 if (strlen($string_builder) > $lenght_first_part) {
-                    $new_parts[0] = '<p>'. substr($paragraph_content, 0, $lenght_first_part) .'</p>';
-                    $new_parts[1] = '<p>'. trim(substr($paragraph_content, $lenght_first_part)) .'</p>';
+                    $new_parts[0] = '<p>' . substr($paragraph_content, 0, $lenght_first_part) . '</p>';
+                    $new_parts[1] = '<p>' . trim(substr($paragraph_content, $lenght_first_part)) . '</p>';
                 } elseif (strlen($string_builder) == $lenght_first_part) {
-                    $new_parts[0] = '<p>'. $paragraph_content .'</p>';
+                    $new_parts[0] = '<p>' . $paragraph_content . '</p>';
                 }
             }
         }
@@ -185,7 +185,7 @@ class StrHelper extends \Illuminate\Support\Str
     public function paragraphsAsArray($string)
     {
         preg_match_all('%(<p[^>]*>.*?</p>)%i', $string, $matches);
-        if (isset($matches[0]) && ! empty($matches[0])) {
+        if (isset($matches[0]) && !empty($matches[0])) {
             return $matches[0];
         }
 
@@ -257,5 +257,10 @@ class StrHelper extends \Illuminate\Support\Str
         }
 
         return false;
+    }
+
+    public function isDomain(string $string): bool
+    {
+        return preg_match('/^(?!:\/\/)(?=.{1,255}$)((.{1,63}\.){1,127}(?![0-9]*$)[a-z0-9-]+\.?)$/i', $string);
     }
 }
