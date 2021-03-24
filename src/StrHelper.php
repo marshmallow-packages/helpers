@@ -2,7 +2,9 @@
 
 namespace Marshmallow\HelperFunctions;
 
-class StrHelper extends \Illuminate\Support\Str
+use Illuminate\Support\Str;
+
+class StrHelper extends Str
 {
     /**
      * Generate a more truly "random" alpha-numeric string.
@@ -88,8 +90,17 @@ class StrHelper extends \Illuminate\Support\Str
         return new StringableHelper('');
     }
 
-    public function remove($string, $remove)
+    public static function remove($string, $remove, $caseSensitive = true)
     {
+        if (method_exists(Str::class, 'remove')) {
+            /**
+             * Illuminate as added a remove method as well. If the version
+             * of Illuminate supports this method, we use the original
+             * version from Illuminate.
+             */
+            return Str::remove($remove, $string, $caseSensitive);
+        }
+
         return str_replace($remove, '', $string);
     }
 
