@@ -126,8 +126,13 @@ class StrHelper extends Str
             $phone_number = '0' . substr($phone_number, 2, strlen($phone_number));
         }
 
-        $phone_number = $country_code . substr($phone_number, 1, strlen($phone_number));
-
+        /**
+         * Strip the first number of the first number is a zero.
+         */
+        if (self::startsWith($phone_number, '0')) {
+            $phone_number = substr($phone_number, 1, strlen($phone_number));
+        }
+        $phone_number = $country_code . $phone_number;
         if (!$use_plus_instead_of_zeros) {
             return '00' . $phone_number;
         }
