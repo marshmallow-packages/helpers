@@ -2,10 +2,14 @@
 
 namespace Marshmallow\HelperFunctions;
 
+use InvalidArgumentException;
 use \Illuminate\Support\Facades\URL;
+use Illuminate\Support\InteractsWithTime;
 
 class UrlHelper extends URL
 {
+    use InteractsWithTime;
+
     public function isCurrent($url)
     {
         if ($url === request()->url() || $url === request()->path()) {
@@ -65,6 +69,47 @@ class UrlHelper extends URL
 
     public function isNotNova($request)
     {
-        return (! $this->isNova($request));
+        return (!$this->isNova($request));
+    }
+
+    /**
+     * Create a signed route URL for a named route.
+     *
+     * @param  string  $name
+     * @param  mixed  $parameters
+     * @param  \DateTimeInterface|\DateInterval|int|null  $expiration
+     * @param  bool  $absolute
+     * @return string
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function signed($path, $expiration = null, $absolute = true)
+    {
+        $parameters = [];
+
+        if (array_key_exists('signature', $parameters)) {
+            throw new InvalidArgumentException(
+                '"Signature" is a reserved parameter when generating signed routes. Please rename your route parameter.'
+            );
+        }
+
+        if ($expiration) {
+            $parameters = $parameters + ['expires' => $this->availableAt($expiration)];
+        }
+
+        ksort($parameters);
+
+        $key = config('app.key');
+        $signature_path = $path . '?' . http_build_query($parameters);
+
+        $parameters = $parameters + [
+            'signature' => hash_hmac('sha256', $signature_path, $key),
+        ];
+
+        return $path . '?' . http_build_query($parameters);
+
+        return $this->route($name, $parameters + [
+            'signature' => hash_hmac('sha256', $this->route($name, $parameters, $absolute), $key),
+        ], $absolute);
     }
 }
