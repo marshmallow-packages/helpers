@@ -279,4 +279,25 @@ class StrHelper extends Str
     {
         return preg_match('/^(?!:\/\/)(?=.{1,255}$)((.{1,63}\.){1,127}(?![0-9]*$)[a-z0-9-]+\.?)$/i', $string);
     }
+
+    public function join(array $parts, $and_value = ' and ', $comma_value = ', '): ?string
+    {
+        $parts_count = count($parts);
+        if (!$parts_count) {
+            return null;
+        }
+
+        if ($parts_count == 1) {
+            return $parts[0];
+        }
+
+        if ($parts_count == 2) {
+            return join($and_value, $parts);
+        }
+
+        $last_item = array_pop($parts);
+        return self::of(join($comma_value, $parts))
+            ->append($and_value)
+            ->append($last_item);
+    }
 }
