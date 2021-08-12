@@ -6,7 +6,7 @@ class IpHelper
 {
     public function forcedIpv4($ip_address = null)
     {
-        if (! $ip_address) {
+        if (!$ip_address) {
             $ip_address = request()->ip();
         }
 
@@ -19,13 +19,13 @@ class IpHelper
 
     public function convert6to4($ip_address)
     {
-        if (! $this->isv6($ip_address)) {
+        if (!$this->isv6($ip_address)) {
             return $ip_address;
         }
 
         $ip_address = $this->genereteFullIpv6($ip_address);
 
-        return hexdec(substr($ip_address, 0, 2)). "." . hexdec(substr($ip_address, 2, 2)). "." . hexdec(substr($ip_address, 5, 2)). "." . hexdec(substr($ip_address, 7, 2));
+        return hexdec(substr($ip_address, 0, 2)) . "." . hexdec(substr($ip_address, 2, 2)) . "." . hexdec(substr($ip_address, 5, 2)) . "." . hexdec(substr($ip_address, 7, 2));
     }
 
     public function isv4($ip_address)
