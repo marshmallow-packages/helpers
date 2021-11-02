@@ -75,7 +75,7 @@ class CsvHelper
 
     public function stream(): StreamedResponse
     {
-        $headers = $this->getHeaders();
+        $headers = $this->headers;
         $data = $this->data;
         $row_callback = $this->callback;
 
@@ -95,7 +95,7 @@ class CsvHelper
             fclose($file);
         };
 
-        return response()->stream($callback, 200, $headers);
+        return response()->stream($callback, 200, $this->getHeaders());
     }
 
     public function setFilename(string $file_name): self
