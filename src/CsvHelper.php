@@ -16,6 +16,8 @@ class CsvHelper
 
     protected $file_name = null;
 
+    protected $delimiter = ',';
+
     public function headers(array $headers): self
     {
         $this->headers = $headers;
@@ -28,6 +30,12 @@ class CsvHelper
         $this->data = $data;
         $this->callback = $callback;
 
+        return $this;
+    }
+
+    public function delimiter($delimiter): self
+    {
+        $this->delimiter = $delimiter;
         return $this;
     }
 
@@ -54,7 +62,7 @@ class CsvHelper
             if ($callback) {
                 $row = $callback($row);
             }
-            fputcsv($file, $row);
+            fputcsv($file, $row, $this->delimiter);
         }
 
         fclose($file);
