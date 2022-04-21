@@ -55,13 +55,14 @@ class CsvHelper
         $callback = $this->callback;
 
         if (!empty($this->headers)) {
-            fputcsv($file, $this->headers);
+            fputcsv($file, $this->headers, $this->delimiter);
         }
 
         foreach ($this->data as $row) {
             if ($callback) {
                 $row = $callback($row);
             }
+
             fputcsv($file, $row, $this->delimiter);
         }
 
@@ -90,14 +91,14 @@ class CsvHelper
         $callback = function () use ($data, $headers, $row_callback) {
             $file = fopen('php://output', 'w');
             if (!empty($headers)) {
-                fputcsv($file, $headers);
+                fputcsv($file, $headers, $this->delimiter);
             }
 
             foreach ($data as $row) {
                 if ($row_callback) {
                     $row = $row_callback($row);
                 }
-                fputcsv($file, $row);
+                fputcsv($file, $row, $this->delimiter);
             }
 
             fclose($file);
