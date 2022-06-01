@@ -245,13 +245,6 @@ class StrHelper extends Str
         return $string;
     }
 
-    public function isJson($value)
-    {
-        json_decode($value);
-
-        return json_last_error() === JSON_ERROR_NONE;
-    }
-
     /**
      * Determine whether any of the provided strings in
      * the haystack contain the needle.
