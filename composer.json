@@ -21,14 +21,14 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "php": "^7.0|^8.0|^8.1",
+        "php": "^7.0|^8.0",
         "laravel/helpers": "^1.3",
-        "illuminate/database": "^8.0|^9.0",
-        "illuminate/support": "^8.0|^9.0"
+        "illuminate/database": "^8.0|^9.0|^10.0",
+        "illuminate/support": "^8.0|^9.0|^10.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.3",
-        "orchestra/testbench": "^6.2"
+        "orchestra/testbench": "^6.2|^7.0|^8.0"
     },
     "autoload": {
         "psr-4": {
