@@ -29,16 +29,16 @@ class UrlHelper extends URL
         return str_replace('/', '\\\\/', $url);
     }
 
-    public function routeUriExists($uri)
+    public function routeUriExists($uri, $route_uris = null)
     {
-        $routes = \Route::getRoutes()->getRoutes();
-        foreach ($routes as $r) {
-            if ($r->uri == $uri) {
-                return true;
-            }
+        if (!$route_uris) {
+            $routes = \Route::getRoutes()->getRoutes();
+            $route_uris = collect($routes)->map(function ($route) {
+                return $route->uri();
+            });
         }
 
-        return false;
+        return $route_uris->contains($uri);
     }
 
     public function buildFromArray(array $url_parts): string
