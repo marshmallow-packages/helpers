@@ -3,6 +3,7 @@
 namespace Marshmallow\HelperFunctions;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 class StrHelper extends Str
 {
@@ -194,8 +195,7 @@ class StrHelper extends Str
     public function getParagraphContent($paragraph)
     {
         preg_match("/<p>(.+?)<\/p>/i", $paragraph, $matches);
-
-        return $matches[1];
+        return Arr::get($matches, 1);
     }
 
     public function paragraphsAsArray($string)
