@@ -4,8 +4,9 @@ namespace Marshmallow\HelperFunctions;
 
 class ReviewHelper
 {
-    public function ratingToStars(float $rating, $config_overrule = [])
+    public function ratingToStars(float $rating = null, array $config_overrule = [])
     {
+        $rating = $rating ?? 0;
         $max_rating = config('review.max_rating', 5);
         $full_star = config('review.full_star', '<i class="fas fa-star"></i>');
         $half_star = config('review.half_star', '<i class="fas fa-star-half-alt"></i>');
