@@ -17,7 +17,15 @@ You can install the package via composer:
 composer require marshmallow/helpers
 ```
 
-[TOC]
+# Table of contents
+1. [CSV Helper](#csv-helper)
+2. [Helper functions](#helper-functions)
+3. [String helper](#string-helper)
+3. [Migrations](#migrations)
+3. [URL](#url)
+3. [Array](#array)
+3. [Reviews](#reviews)
+3. [Grouper](#grouper)
 
 ## CSV Helper
 
