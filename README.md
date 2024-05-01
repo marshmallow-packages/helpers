@@ -21,11 +21,11 @@ composer require marshmallow/helpers
 1. [CSV Helper](#csv-helper)
 2. [Helper functions](#helper-functions)
 3. [String helper](#string-helper)
-3. [Migrations](#migrations)
-3. [URL](#url)
-3. [Array](#array)
-3. [Reviews](#reviews)
-3. [Grouper](#grouper)
+4. [Migrations](#migrations)
+5. [URL](#url)
+6. [Array](#array)
+7. [Reviews](#reviews)
+8. [Grouper](#grouper)
 
 ## CSV Helper
 
