@@ -35,42 +35,43 @@ class NumberHelper
     public function floatFromString(string $string)
     {
         // Remove any characters that are not digits, comma, or dot
-        $cleanedString = preg_replace('/[^\d,\.]/', '', $string);
+        $cleaned_string = preg_replace("/[^\d,\.]/", "", $string);
 
         // Count the commas and dots
-        $commaCount = substr_count($cleanedString, ',');
-        $dotCount = substr_count($cleanedString, '.');
+        $comma_count = substr_count($cleaned_string, ",");
+        $dot_count = substr_count($cleaned_string, ".");
 
         // Determine the decimal separator and the thousand separator based on counts and position
-        if ($commaCount > 0 && $dotCount > 0) {
+        if ($comma_count > 0 && $dot_count > 0) {
             // Both comma and dot present, the last occurrence determines the decimal separator
-            if (strrpos($cleanedString, ',') > strrpos($cleanedString, '.')) {
+            if (strrpos($cleaned_string, ",") > strrpos($cleaned_string, ".")) {
                 // Comma is the decimal separator
-                $cleanedString = str_replace('.', '', $cleanedString); // Remove thousand separator
-                $cleanedString = str_replace(',', '.', $cleanedString); // Convert decimal separator
+                $cleaned_string = str_replace(".", "", $cleaned_string); // Remove thousand separator
+                $cleaned_string = str_replace(",", ".", $cleaned_string); // Convert decimal separator
             } else {
                 // Dot is the decimal separator
-                $cleanedString = str_replace(',', '', $cleanedString); // Remove thousand separator
+                $cleaned_string = str_replace(",", "", $cleaned_string); // Remove thousand separator
             }
-        } elseif ($commaCount > 0) {
-            // Only commas are present, likely used as decimal separator
-            if ($commaCount == 1 && $cleanedString[-3] == ',') {
-                // It's used as a decimal separator
-                $cleanedString = str_replace(',', '.', $cleanedString);
+        } elseif ($comma_count > 0) {
+            // Only commas are present
+            if ($comma_count == 1 && preg_match('/,\d{1,2}$/', $cleaned_string)) {
+                // Comma is followed by one or two digits, it's used as a decimal separator
+                $cleaned_string = str_replace(",", ".", $cleaned_string);
             } else {
-                // It's used as a thousand separator
-                $cleanedString = str_replace(',', '', $cleanedString);
+                // Commas likely used as thousand separators
+                $cleaned_string = str_replace(",", "", $cleaned_string);
             }
-        } elseif ($dotCount > 0) {
+        } elseif ($dot_count > 0) {
             // Only dots are present
-            if ($dotCount == 1 && $cleanedString[-3] == '.') {
-                // It's used as a decimal separator, nothing to change
+            if ($dot_count == 1 && preg_match('/\.\d{1,2}$/', $cleaned_string)) {
+                // Dot is followed by one or two digits, it's used as a decimal separator
+                // Nothing to change
             } else {
-                // It's used as a thousand separator
-                $cleanedString = str_replace('.', '', $cleanedString);
+                // Dots used as thousand separators
+                $cleaned_string = str_replace(".", "", $cleaned_string);
             }
         }
 
-        return (float) $cleanedString;
+        return (float) $cleaned_string;
     }
 }
