@@ -32,8 +32,11 @@ class NumberHelper
         return $this->oddEvenItemRow($loop_count, $items_per_row) === 'even';
     }
 
-    public function floatFromString(string $string)
+    public function floatFromString(?string $string = null)
     {
+        if (!$string) {
+            return 0;
+        }
         // Remove any characters that are not digits, comma, or dot
         $cleaned_string = preg_replace("/[^\d,\.]/", "", $string);
 
