@@ -7,7 +7,7 @@ trait Observer
     public static function bootObserver(): void
     {
         \Marshmallow\HelperFunctions\Observers\ModelObserver::observe(
-            get_class()
+            self::class
         );
     }
 
