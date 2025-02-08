@@ -10,7 +10,7 @@ jobs:
         name: PHP Syntax Checker
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout v3
+            - name: Checkout v4
               uses: actions/checkout@v4
 
             - name: Check PHP syntax errors
