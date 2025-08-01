@@ -4,7 +4,7 @@ namespace Marshmallow\HelperFunctions;
 
 class ReviewHelper
 {
-    public function ratingToStars(float $rating = null, array $config_overrule = [])
+    public function ratingToStars(?float $rating = null, array $config_overrule = [])
     {
         $rating = $rating ?? 0;
         $max_rating = config('review.max_rating', 5);

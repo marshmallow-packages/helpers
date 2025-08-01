@@ -29,7 +29,7 @@ class UrlHelper extends URL
         return str_replace('/', '\\\\/', $url);
     }
 
-    public function routeUriExists($uri, $route_uris = null)
+    public function routeUriExists($uri, ?\Illuminate\Support\Collection $route_uris = null)
     {
         if (!$route_uris) {
             $routes = \Route::getRoutes()->getRoutes();
@@ -83,7 +83,7 @@ class UrlHelper extends URL
      *
      * @throws \InvalidArgumentException
      */
-    public function signed($path, $expiration = null, $absolute = true)
+    public function signed($path, \DateTimeInterface|\DateInterval|int|null $expiration = null, $absolute = true)
     {
         $parameters = [];
 
