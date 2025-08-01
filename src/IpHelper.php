@@ -4,7 +4,7 @@ namespace Marshmallow\HelperFunctions;
 
 class IpHelper
 {
-    public function forcedIpv4($ip_address = null)
+    public function forcedIpv4(?string $ip_address = null)
     {
         if (!$ip_address) {
             $ip_address = request()->ip();

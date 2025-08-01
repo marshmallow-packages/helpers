@@ -24,7 +24,7 @@ class CsvHelper
         return $this;
     }
 
-    public function data($data, $callback = null): self
+    public function data($data, ?callable $callback = null): self
     {
         $data = $this->makeDataArray($data);
         $this->data = $data;
@@ -39,7 +39,7 @@ class CsvHelper
         return $this;
     }
 
-    public function store(string $path = null): string
+    public function store(?string $path = null): string
     {
         $path = $path ?? storage_path();
 
@@ -71,7 +71,7 @@ class CsvHelper
         return $path;
     }
 
-    public function storeAndDownload(string $path = null): BinaryFileResponse
+    public function storeAndDownload(?string $path = null): BinaryFileResponse
     {
         $location = $this->store($path);
         return response()->download($location);

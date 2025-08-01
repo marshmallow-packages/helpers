@@ -23,7 +23,7 @@ trait Selectable
      *
      *
      */
-    public static function options($key = 'id', $value = 'name', Closure $where = null, Closure $map = null)
+    public static function options($key = 'id', $value = 'name', ?Closure $where = null, ?Closure $map = null)
     {
         $result = self::limit(null);
         if ($where) {

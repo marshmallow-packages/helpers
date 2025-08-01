@@ -151,7 +151,7 @@ class StrHelper extends Str
         return preg_replace('/[^\w]/', '', $string);
     }
 
-    public function readmore($string, $lenght_first_part, $return_this_part = null)
+    public function readmore($string, $lenght_first_part, ?int $return_this_part = null)
     {
         $new_parts = [];
         $parts = $this->paragraphsAsArray($string);

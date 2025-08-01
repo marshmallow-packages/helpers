@@ -18,14 +18,14 @@ class SizeHelper
         'bytes', 'Kb', 'Mb', 'Gb', 'Auto',
     ];
 
-    public function __construct($value = null)
+    public function __construct(mixed $value = null)
     {
         $this->value = $value;
 
         return $this;
     }
 
-    public static function of($value = null)
+    public static function of(mixed $value = null)
     {
         return new self($value);
     }
