@@ -31,12 +31,6 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        if (!method_exists(Str::class, 'isJson')) {
-            Str::macro('isJson', function ($value) {
-                json_decode($value);
-                return json_last_error() === JSON_ERROR_NONE;
-            });
-        }
 
         $files = Finder::create()
             ->files()

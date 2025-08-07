@@ -23,7 +23,7 @@ class DateHelper
     /**
      * Set the weekend days you want to use
      *
-     * @param  array $array An array with integers.
+     * @param  array $weekend_days An array with integers.
      */
     public function setWeekend(array $weekend_days)
     {
@@ -31,8 +31,6 @@ class DateHelper
          * This function will reset the current
          * weekend days so we first set it to
          * an empty array.
-         *
-         * @var array
          */
         $this->weekend_days = [];
         foreach ($weekend_days as $weekend_day) {

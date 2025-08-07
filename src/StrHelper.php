@@ -93,16 +93,7 @@ class StrHelper extends Str
 
     public static function remove($string, $remove, $caseSensitive = true)
     {
-        if (method_exists(Str::class, 'remove')) {
-            /**
-             * Illuminate as added a remove method as well. If the version
-             * of Illuminate supports this method, we use the original
-             * version from Illuminate.
-             */
-            return Str::remove($remove, $string, $caseSensitive);
-        }
-
-        return str_replace($remove, '', $string);
+        return Str::remove($remove, $string, $caseSensitive);
     }
 
     public function removeSpaces($string)
@@ -201,7 +192,7 @@ class StrHelper extends Str
     public function paragraphsAsArray($string)
     {
         preg_match_all('%(<p[^>]*>.*?</p>)%i', $string, $matches);
-        if (isset($matches[0]) && !empty($matches[0])) {
+        if (!empty($matches[0])) {
             return $matches[0];
         }
 

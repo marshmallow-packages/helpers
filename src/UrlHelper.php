@@ -75,8 +75,7 @@ class UrlHelper extends URL
     /**
      * Create a signed route URL for a named route.
      *
-     * @param  string  $name
-     * @param  mixed  $parameters
+     * @param  string  $path
      * @param  \DateTimeInterface|\DateInterval|int|null  $expiration
      * @param  bool  $absolute
      * @return string
@@ -86,12 +85,6 @@ class UrlHelper extends URL
     public function signed($path, \DateTimeInterface|\DateInterval|int|null $expiration = null, $absolute = true)
     {
         $parameters = [];
-
-        if (array_key_exists('signature', $parameters)) {
-            throw new InvalidArgumentException(
-                '"Signature" is a reserved parameter when generating signed routes. Please rename your route parameter.'
-            );
-        }
 
         if ($expiration) {
             $parameters = $parameters + ['expires' => $this->availableAt($expiration)];

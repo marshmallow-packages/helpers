@@ -15,9 +15,11 @@ class Group extends Collection
         $this->name = $name;
     }
 
-    public function add($item)
+    public function add($item): self
     {
         $this->items[] = $item;
+        
+        return $this;
     }
 
     public function is($name)
