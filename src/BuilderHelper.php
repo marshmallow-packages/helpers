@@ -8,10 +8,10 @@ class BuilderHelper
 {
     /**
      * Get items that are active compared to the current date.
-     * @param  Builder $builder Illuminate\Database\Eloquent\Builder
+     * @param  Builder $builder
      * @param  string  $valid_from_column Column name in the database
      * @param  string  $valid_till_column Column name in the database
-     * @return Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function published(Builder $builder, $valid_from_column = 'valid_from', $valid_till_column = 'valid_till')
     {

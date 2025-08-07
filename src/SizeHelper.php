@@ -21,8 +21,6 @@ class SizeHelper
     public function __construct(mixed $value = null)
     {
         $this->value = $value;
-
-        return $this;
     }
 
     public static function of(mixed $value = null)

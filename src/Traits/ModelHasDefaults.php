@@ -24,7 +24,6 @@ trait ModelHasDefaults
 
     /**
      * This is called when your are saving a model resource.
-     * @return [type] [description]
      */
     public function applyDefaultAttributes()
     {
