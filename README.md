@@ -1,8 +1,8 @@
 ![alt text](https://marshmallow.dev/cdn/media/logo-red-237x46.png "marshmallow.")
 
-# Marshmallow Deployer
+# Marshmallow Helpers
 
-We have build a package with some helpers that are usefull in almost every project. We use this package in all our projects. For ourself and for our customers. If you miss anything, create an issue and will will add it as soon as possible.
+A package containing all the helper functions we can use throughout all our projects. We use this package in all our projects, for ourselves and for our customers. If you miss anything, create an issue and we will add it as soon as possible.
 
 [![Version](https://img.shields.io/packagist/v/marshmallow/helpers)](https://github.com/marshmallow-packages/helpers)
 [![Issues](https://img.shields.io/github/issues/marshmallow-packages/helpers)](https://github.com/marshmallow-packages/helpers)
@@ -363,7 +363,8 @@ If you discover any security related issues, please email stef@marshmallow.dev i
 
 ## Credits
 
--   [All Contributors](../../contributors)
+-   [Stef van Esch](https://github.com/marshmallow-packages)
+-   [All Contributors](https://github.com/marshmallow-packages/helpers/contributors)
 
 ## License
 
